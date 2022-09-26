@@ -1,9 +1,6 @@
 import com.sun.tools.javac.comp.Resolve;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -45,6 +42,7 @@ public class TechJobs {
                 } else {
 
                     ArrayList<String> results = JobData.findAll(columnChoice);
+                    Collections.sort(results);
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
@@ -123,13 +121,6 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-        JobData.findAll("name");
-        JobData.findAll("employer");
-        JobData.findAll("location");
-        JobData.findAll("employment type");
-        JobData.findAll("core competency");
-        JobData.findAll();
-//        ArrayList<HashMap<String, String>>  jobs = new ArrayList<>();
         for (HashMap<String, String> jobs : someJobs) {
             System.out.println("\n*****");
             for (HashMap.Entry<String,String> job : jobs.entrySet()) {
